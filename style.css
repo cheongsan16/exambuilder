@@ -19,6 +19,21 @@
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+
+    --point-color: #7baef5;
+    --point-color-hover: #93c5fd;
+    --point-color-light: #1e3a8a;
+
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -34,6 +49,20 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header,
+.card,
+.filter-select,
+.filter-btn,
+.btn-add,
+.cart-item,
+.modal-window,
+footer,
+.main-nav,
+.modal-footer {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 a {
@@ -665,88 +694,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* 모바일 대응 */
-@media (max-width: 768px) {
-
-    /* 모바일 헤더 */
-    .header-inner {
-        flex-direction: column;
-        height: auto;
-        padding: 16px 20px;
-        gap: 12px;
-    }
-
-    nav.main-nav {
-        width: 100%;
-    }
-
-    nav.main-nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 24px;
-    }
-
-    nav a {
-        font-size: 0.95rem;
-        padding: 4px 0;
-    }
-
-    /* index.html 그리드 1단으로 */
-    .features-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    /* about.html 그리드 1단으로 */
-    .point-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* content.html 2단 레이아웃을 1단으로 합치고 수직 정렬 */
-    main.content-layout {
-        flex-direction: column;
-        padding-top: 20px;
-        gap: 20px;
-    }
-
-    .content-area {
-        width: 100%;
-    }
-
-    aside.sidebar {
-        width: 100%;
-        min-width: unset;
-    }
-
-    .sticky-wrapper {
-        position: static;
-    }
-
-    .card {
-        padding: 20px;
-        border-radius: 16px;
-    }
-
-    .filter-label {
-        margin-left: 0;
-    }
-
-    .modal-window {
-        width: 100%;
-        height: 100vh;
-        border-radius: 0;
-    }
-
-    .modal-body {
-        padding: 20px 10px;
-        overflow-x: auto;
-    }
-
-    .a4-paper {
-        min-width: 210mm;
-    }
-}
-
 /* 모달 영역 */
 .modal-overlay {
     position: fixed;
@@ -958,6 +905,104 @@ footer {
 
 .hidden {
     display: none !important;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--text-main);
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.15) rotate(10deg);
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+
+    /* 모바일 헤더 */
+    .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 20px;
+        gap: 12px;
+    }
+
+    nav.main-nav {
+        width: 100%;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    nav a {
+        font-size: 0.95rem;
+        padding: 4px 0;
+    }
+
+    /* index.html 그리드 1단으로 */
+    .features-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* about.html 그리드 1단으로 */
+    .point-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* content.html 2단 레이아웃을 1단으로 합치고 수직 정렬 */
+    main.content-layout {
+        flex-direction: column;
+        padding-top: 20px;
+        gap: 20px;
+    }
+
+    .content-area {
+        width: 100%;
+    }
+
+    aside.sidebar {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .sticky-wrapper {
+        position: static;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .filter-label {
+        margin-left: 0;
+    }
+
+    .modal-window {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .modal-body {
+        padding: 20px 10px;
+        overflow-x: auto;
+    }
+
+    .a4-paper {
+        min-width: 210mm;
+    }
 }
 
 @media print {
