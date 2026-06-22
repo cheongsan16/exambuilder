@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamBuilder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html"><span>Exam</span>Builder.</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">홈</a></li>
+                    <li><a href="content.html">시험지 만들기</a></li>
+                    <li><a href="about.html">소개</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">원하는 문제만 쏙쏙 골라<br><span>나만의 시험지</span>를 완성하세요.</h1>
+                <p class="hero-subtitle">
+                    방대한 기출문제 데이터 속에서 연도별, 난이도별, 유형별로 필요한 문제만<br>쉽게 필터링하고 깔끔한 시험지 형태로 인쇄할 수 있습니다.
+                </p>
+                <a href="content.html" class="cta-btn">지금 시작하기</a>
+            </div>
+        </section>
+
+        <section class="features-section container">
+            <div class="section-header">
+                <h2>서비스 특징</h2>
+                <p>ExamBuilder가 제공하는 핵심 기능들을 소개합니다.</p>
+            </div>
+
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>정밀한 문제 필터링</h3>
+                    <p>JSON 데이터로 연동된 수많은 문제들을 년도, 유형, 난이도 등 다양한 조건으로 빠르게 검색하고 분류합니다.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>간편한 문제 담기</h3>
+                    <p>원하는 문제를 클릭 한 번으로 장바구니에 담고 뺄 수 있습니다. 직관적인 UI로 선택한 문제를 한눈에 확인하세요.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🖨️</div>
+                    <h3>깔끔한 시험지 출력</h3>
+                    <p>담은 문제들을 실제 시험지와 유사한 포맷으로 자동 변환합니다. 인쇄 기능을 통해 쉽게 종이로 출력해 풀어보세요.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="preview-section">
+                <h2>이렇게 만들어집니다</h2>
+                <p style="color: var(--text-muted); margin-top: 10px;">복잡한 과정 없이 몇 번의 클릭만으로 깔끔한 시험지가 완성됩니다.</p>
+                <div class="preview-box">
+                    <img src="img/exambuilder.gif" alt="ExamBuilder 사용 예시" class="preview-img">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 ExamBuilder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

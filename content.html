@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamBuilder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html"><span>Exam</span>Builder.</a>
+            </div>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="content.html" class="active">시험지 만들기</a></li>
+                    <li><a href="about.html">소개</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content-layout">
+        <div class="content-area">
+
+            <!-- 필터링 영역 -->
+            <section class="card" id="filter-section">
+                <h2 class="section-title">지문 검색 및 필터링</h2>
+
+                <div class="filter-group">
+                    <span class="filter-label">시행 연월</span>
+                    <div class="filter-controls">
+                        <!-- 연도 선택 (Select) -->
+                        <select class="filter-select" id="filter-year">
+                            <option value="all">연도 전체</option>
+                            <option value="2026">2026년</option>
+                            <option value="2025">2025년</option>
+                            <option value="2024">2024년</option>
+                        </select>
+                        <!-- 타입 선택 -->
+                        <div class="filter-btns" id="filter-type">
+                            <button class="filter-btn active" value="all">전체</button>
+                            <button class="filter-btn" value="6월">6월 모평</button>
+                            <button class="filter-btn" value="9월">9월 모평</button>
+                            <button class="filter-btn" value="수능">수능</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">영역 및 세부 장르</span>
+                    <div class="filter-controls">
+                        <select class="filter-select" id="filter-domain" onchange="updateGenreOptions()">
+                            <option value="all">영역 전체</option>
+                            <option value="독서">독서</option>
+                            <option value="문학">문학</option>
+                        </select>
+                        <select class="filter-select" id="filter-genre">
+                            <option value="all">세부 장르 전체</option>
+                            <!-- 독서 장르 -->
+                            <optgroup label="독서" class="genre-group genre-read">
+                                <option value="독서론">독서론</option>
+                                <option value="인문">인문</option>
+                                <option value="과학기술">과학기술</option>
+                                <option value="법률">법률</option>
+                                <option value="경제">경제</option>
+                            </optgroup>
+
+                            <!-- 문학 장르 -->
+                            <optgroup label="문학" class="genre-group genre-lit">
+                                <option value="고전소설">고전소설</option>
+                                <option value="고전시가">고전시가</option>
+                                <option value="현대소설">현대소설</option>
+                                <option value="현대시">현대시</option>
+                                <option value="수필">수필</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">난이도</span>
+                    <!-- 난이도 선택 (Buttons) -->
+                    <div class="filter-btns" id="filter-difficulty">
+                        <button class="filter-btn active" value="all">전체</button>
+                        <button class="filter-btn" value="상">상</button>
+                        <button class="filter-btn" value="중">중</button>
+                        <button class="filter-btn" value="하">하</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2 class="section-title">
+                    검색 결과
+                    <span class="badge-count" id="result-count"></span>
+                </h2>
+
+                <div class="question-list" id="question-list-container">
+                </div>
+            </section>
+
+        </div>
+
+        <!-- 장바구니 Aside -->
+        <aside class="sidebar">
+            <div class="sticky-wrapper card">
+                <h3 class="section-title">
+                    선택한 지문
+                    <span class="badge-count" id="cart-count">0건</span>
+                </h3>
+
+                <div class="cart-list" id="cart-list-wrapper">
+                    <div class="empty-message" id="cart-empty-msg">
+                        아직 담은 문제가 없습니다.
+                    </div>
+                </div>
+
+                <button button class="btn-generate" id="btn-generate-exam" disabled onclick="generateExamPaper()">시험지
+                    생성하기</button>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 ExamBuilder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 모달 -->
+    <div id="exam-modal" class="modal-overlay hidden">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h2>📑 내 커스텀 시험지 미리보기</h2>
+                <button class="btn-close"
+                    onclick="document.getElementById('exam-modal').classList.add('hidden')">&times;</button>
+            </div>
+
+            <div class="modal-body" id="modal-body-container">
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-print" onclick="window.print()">🖨️ 시험지 인쇄하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

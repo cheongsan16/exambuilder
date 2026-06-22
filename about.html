@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamBuilder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html"><span>Exam</span>Builder.</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="content.html">시험지 만들기</a></li>
+                    <li><a href="about.html" class="active">소개</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container about-layout">
+        <section class="card">
+            <h2 class="section-title">👩‍💻 개발자 소개</h2>
+            <div class="profile-wrapper">
+                <div class="profile-avatar">
+                    <img src="img/profile.png" alt="👩‍💻 프로필 아바타" class="profile-img">
+                </div>
+                <div class="profile-info">
+                    <h3>신유경</h3>
+                    <span class="role">언어정보학과 202503175</span>
+
+                    <div class="profile-links">
+                        <a href="mailto:cheongsan16@naver.com" class="link-badge">Email me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="section-title">💡 프로젝트 기획 의도</h2>
+            <div class="text-content">
+                <p><strong>"원하는 기출문제만 쏙쏙 뽑아서 풀어볼 순 없을까?"</strong></p>
+                <p>ExamBuilder는 방대한 기출문제 데이터를 보다 효율적으로 선택해 활용하기 위해서 기획되었습니다. 매번 무거운 문제집 전체를 들고 다니거나 불필요한 문제까지 출력해야
+                    하는 학생, 그리고 학생 맞춤형 과제를 내주어야 하는 선생님들의 불편함을 해소하고자 합니다. 문제를 선정하고 모아서 시험지 형태로 만드는 일의 불편함을 잘 알기에,
+                    사용자가 빠르고 직관적으로 문제를 필터링하고 자신만의 시험지를 완성할 수 있는 가벼운 웹 환경을 제공하는 것이 목표입니다.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="section-title">🎯 주요 제작 포인트</h2>
+            <div class="point-grid">
+                <div class="point-item">
+                    <h4>📝 비정형 텍스트 구조화 (Data Parsing)</h4>
+                    <p>실제 시험지 안의 복잡한 자연어 지문과 문항의 논리적 구조를 분석해 데이터를 구축했습니다. Python을 활용해 PDF에서 데이터를 분리해 내고,
+                        프론트엔드 환경에 최적화된 JSON 형식으로 재구성했습니다.</p>
+                </div>
+                <div class="point-item">
+                    <h4>🔄 상태 기반 UI 동기화 (State-Driven UI)</h4>
+                    <p>단순한 DOM 조작을 넘어 데이터(State)를 중심으로 렌더링이 이루어지도록 설계했습니다. 선택한 문제 배열의 상태가 변경되면 좌측 문제 목록의 버튼 스타일과 우측
+                        장바구니 UI가 즉각적이고 일관되게 동기화됩니다.</p>
+                </div>
+                <div class="point-item">
+                    <h4>🖨️ 인쇄 매체 최적화 (Print Media CSS)</h4>
+                    <p>웹 화면을 넘어 실제 출력물로서의 유용성을 고려했습니다. @media print를 활용해 불필요한 UI는 숨기고, 모달 내부의 시험지 영역만 실제 A4 용지 규격에 맞춰
+                        깔끔하게 인쇄되도록 출력 레이아웃을 완벽히 제어했습니다.</p>
+                </div>
+                <div class="point-item">
+                    <h4>📐 문서 특화 다단 레이아웃 (Document UI)</h4>
+                    <p>실제 모의고사 시험지와 동일한 사용자 경험을 제공하기 위해 CSS 다단 레이아웃(column-count)을 적용했습니다. 또한 앱 인터페이스에는 모던한 고딕체를, 시험지
+                        본문에는 가독성이 높은 명조체를 상속시켜 영역별 타이포그래피를 최적화했습니다.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 ExamBuilder. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
